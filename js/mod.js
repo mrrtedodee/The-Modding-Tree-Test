@@ -1,8 +1,6 @@
 let modInfo = {
-	name: "The ??? Tree",
 	name: "The Test Tree",
 	id: "mymod",
-	author: "nobody",
 	author: "mrrtedodee",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
@@ -16,14 +14,11 @@ let modInfo = {
 // Set your version in num and name
 let VERSION = {
 	num: "0.0",
-	name: "Literally nothing",
 	name: "Literally nothing but a prestige layer",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
 		- Started to build this game. <br>
 		`
 
