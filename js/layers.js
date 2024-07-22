@@ -20,16 +20,50 @@ addLayer("p", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
+    tabFormat: [
+        "main-display",
+        "prestige-button",
+        ["microtabs", "stuff"],
+        ["blank", "25px"],
+    ],
+},
+tabFormat: [
+    "main-display",
+    "prestige-button",
+    ["microtabs", "stuff"],
+    ["blank", "25px"],
+],
+microtabs: {
+    stuff: {
+                    "Upgrades": {
+                        unlocked() {return (hasAchievement("a", 11))},
+                content: [
+                    ["blank", "15px"],
+                    ["raw-html", () => `<h4 style="opacity:.5">Welcome to the Pro Tree!<br> Your goal is to reach the endgame. You can press P to gain People.<br> Which is used to buy upgrades.</h4>`],
+                    ["upgrades", [1,2,3,4,5,6,7,8,9]]
+                ],
+                "Tutorial": {
+                    unlocked() {return (hasAchievement("a", 11))},
+                    content: [
+                        ["blank", "15px"],
+                        "lore"
+                    ]
+                    
+                },
+            },
+        },
+    },
+    update(diff){
+        player.bestPoints = player.bestPoints.max(player.points)
+        player.bestNS = player.bestNS.max(player.su.points)
+    },
+upgrades: {
+    11: { title: "1",
+    description: "Double your point gain.",
+    cost: new ExpantaNum(1),
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
-    upgrades: {
-        11: {
-            description: "Blah",
-            cost: new Decimal(100),
-            etc
-        },
-        etc
-    }
+})
